@@ -49,7 +49,6 @@ TBD
 
 - [Pico SDK](https://github.com/raspberrypi/pico-sdk) [version]
 - CMake [version] and an ARM GNU toolchain
-- [Any DVI library used, e.g. PicoDVI]
 
 ### Build
 
@@ -67,7 +66,6 @@ TBD (photos / video of the C128 on an HDMI display)
 
 - [ ] Schematics and PCB
 - [ ] Demo photos and video
-- [ ] [Other planned work]
 - [ ] TBD
 
 
