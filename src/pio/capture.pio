@@ -1,0 +1,27 @@
+.program capture
+
+    ; y - samples per line - 1
+    ; osr - left margine - 2 pixels + phase (0-11) in cycles 
+
+    pull block              
+    mov y, osr              
+    pull block
+
+.wrap_target
+
+; waint for falling edge
+    wait 1 pin 4
+    wait 0 pin 4
+
+; skil the left margine
+    mov x, osr          [11]
+delay:
+    jmp x-- delay
+
+    mov x, y            [11]
+sample:
+    in pins, 4          [10]
+    jmp x-- sample
+
+.wrap
+
