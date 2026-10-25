@@ -10,6 +10,7 @@ target_include_directories(c128_dvi PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/capture
     ${CMAKE_CURRENT_LIST_DIR}/pio
     ${CMAKE_CURRENT_LIST_DIR}/stream
+    ${CMAKE_CURRENT_LIST_DIR}/palette
 )
 
 target_link_libraries(c128_dvi

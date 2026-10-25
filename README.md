@@ -30,44 +30,26 @@ while the Pico is powered, so the C128's 5V TTL signals connect directly.
 
 | C128 RGBI signal | Pico GPIO |
 |------------------|-----------|
-| Red | GP0 |
-| Green | GP1 |
-| Blue | GP2 |
-| Intensity | GP3 |
-| H-Sync | GP4 |
-| V-Sync | GP5 |
+| Red | GPIO 0 |
+| Green | GPIO 1 |
+| Blue | GPIO 2 |
+| Intensity | GPIO 3 |
+| H-Sync | GPIO 4 |
+| V-Sync | GPIO 5 |
 | GND | GND |
 
-
-### Schematics
-
-TBD
 
 ## Building the Firmware
 
 ### Prerequisites
 
-- [Pico SDK](https://github.com/raspberrypi/pico-sdk) [version]
-- CMake [version] and an ARM GNU toolchain
+- [Pico SDK](https://github.com/raspberrypi/pico-sdk) 
+- CMake and an ARM GNU toolchain
 
-### Build
-
-TBD
-
-### Flash
-
-TBD
 
 ## Demo
 
 TBD (photos / video of the C128 on an HDMI display)
-
-## Known Issues / Roadmap
-
-- [ ] Schematics and PCB
-- [ ] Demo photos and video
-- [ ] TBD
-
 
 ## License
 

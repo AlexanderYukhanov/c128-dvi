@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 #include "hardware/clocks.h"
+#include "palette/palette.h"
 #include "pico/multicore.h"
 #include "pico/stdlib.h"
 
 #include "capture.h"
+#include "palette.h"
 #include "stream.h"
 
 int main() {
@@ -33,7 +35,7 @@ int main() {
     ++frames;
     const uint8_t *frame = capture();
     if (frame) {
-      stream_draw_640x200_irgb(frame);
+      stream_draw_640x200(frame, c128_ibgr_to_rgb332);
     } else {
       frames = 0;
     }

@@ -1,5 +1,4 @@
 #include "stream.h"
-#include "pallete.h"
 #include "xga_font_data.h"
 
 #include "hardware/dma.h"
@@ -237,7 +236,7 @@ void stream_run(void) {
     __wfi();
 }
 
-void stream_draw_640x200_irgb(const uint8_t *frame) {
+void stream_draw_640x200(const uint8_t *frame, const uint8_t palette[16]) {
   // center the output verically
   uint8_t *dst = framebuf;
   dst += 16 * MODE_H_ACTIVE_PIXELS;
@@ -245,21 +244,21 @@ void stream_draw_640x200_irgb(const uint8_t *frame) {
   const uint8_t *src = frame;
   for (int i = 0; i < 640 * 200 / 2; ++i) {
     uint8_t v = *src++;
-    *dst++ = c128_ribg_to_rgb332[0xf & v];
-    *dst++ = c128_ribg_to_rgb332[v >> 4];
+    *dst++ = palette[0xf & v];
+    *dst++ = palette[v >> 4];
   }
 }
 
-void stream_draw_no_signal(void) { 
+void stream_draw_no_signal(void) {
   framebuf[0] = 1;
-  memset(framebuf, 0x1, sizeof framebuf); 
+  memset(framebuf, 0x1, sizeof framebuf);
 }
 
-void stream_report(const char* s) {
+void stream_report(const char *s) {
   for (int line = 0; line < 8; ++line) {
     uint8_t *dst = framebuf + line * MODE_H_ACTIVE_PIXELS;
-    const char* c = s;
-    while(*c) {
+    const char *c = s;
+    while (*c) {
       uint8_t mask = avpriv_cga_font[(int)(*c) * 8 + line];
       for (int i = 0; i < 8; i++) {
         int val = (mask & 1) ? 255 : 1;

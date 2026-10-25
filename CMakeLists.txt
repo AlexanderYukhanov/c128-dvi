@@ -14,7 +14,7 @@ endif()
 # ====================================================================================
 cmake_minimum_required(VERSION 3.13)
 
-set(PICO_BOARD pico2_w CACHE STRING "Board type")
+set(PICO_BOARD pico2 CACHE STRING "Board type")
 set(PICO_PLATFORM rp2350-arm-s CACHE STRING "Pico platform")
 
 include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
